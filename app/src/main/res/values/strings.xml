@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="contacto1">Jose</string>
+    <string name="contacto2">Pedro</string>
+    <string name="contacto3">Marcos</string>
+    <string name="contacto4">Lucas</string>
+</resources>
