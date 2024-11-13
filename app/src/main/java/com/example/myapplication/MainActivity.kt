@@ -130,6 +130,14 @@ fun WhatsAppApi(modifier: Modifier = Modifier) {
                     .padding(end = 8.dp)
             )
             Text(text = stringResource(R.string.contacto2))
+            Spacer(modifier = Modifier.weight(1f))
+            Image(
+                painter = painterResource(R.drawable.chincheta),
+                contentDescription = "FijadoIcon",
+                modifier = Modifier
+                    .size(27.dp)
+                    .padding(end = 8.dp)
+            )
         }
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -145,6 +153,14 @@ fun WhatsAppApi(modifier: Modifier = Modifier) {
                     .padding(end = 8.dp)
             )
             Text(text = stringResource(R.string.contacto3))
+            Spacer(modifier = Modifier.weight(1f))
+            Image(
+                painter = painterResource(R.drawable.chincheta),
+                contentDescription = "FijadoIcon",
+                modifier = Modifier
+                    .size(27.dp)
+                    .padding(end = 8.dp)
+            )
         }
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -160,6 +176,126 @@ fun WhatsAppApi(modifier: Modifier = Modifier) {
                     .padding(end = 8.dp)
             )
             Text(text = stringResource(R.string.contacto4))
+        }
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 8.dp)
+        ) {
+            Icon(
+                imageVector = Icons.Default.AccountCircle,
+                contentDescription = "ContactoLogo",
+                modifier = Modifier
+                    .size(35.dp)
+                    .padding(end = 8.dp)
+            )
+            Text(text = stringResource(R.string.contacto5))
+        }
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 8.dp)
+        ) {
+            Icon(
+                imageVector = Icons.Default.AccountCircle,
+                contentDescription = "ContactoLogo",
+                modifier = Modifier
+                    .size(35.dp)
+                    .padding(end = 8.dp)
+            )
+            Text(text = stringResource(R.string.contacto6))
+        }
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 8.dp)
+        ) {
+            Icon(
+                imageVector = Icons.Default.AccountCircle,
+                contentDescription = "ContactoLogo",
+                modifier = Modifier
+                    .size(35.dp)
+                    .padding(end = 8.dp)
+            )
+            Text(text = stringResource(R.string.contacto7))
+        }
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 8.dp)
+        ) {
+            Icon(
+                imageVector = Icons.Default.AccountCircle,
+                contentDescription = "ContactoLogo",
+                modifier = Modifier
+                    .size(35.dp)
+                    .padding(end = 8.dp)
+            )
+            Text(text = stringResource(R.string.contacto8))
+        }
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 8.dp)
+        ) {
+            Icon(
+                imageVector = Icons.Default.AccountCircle,
+                contentDescription = "ContactoLogo",
+                modifier = Modifier
+                    .size(35.dp)
+                    .padding(end = 8.dp)
+            )
+            Text(text = stringResource(R.string.contacto9))
+        }
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 8.dp)
+        ) {
+            Icon(
+                imageVector = Icons.Default.AccountCircle,
+                contentDescription = "ContactoLogo",
+                modifier = Modifier
+                    .size(35.dp)
+                    .padding(end = 8.dp)
+            )
+            Text(text = stringResource(R.string.contacto10))
+        }
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 8.dp)
+        ) {
+            Icon(
+                imageVector = Icons.Default.AccountCircle,
+                contentDescription = "ContactoLogo",
+                modifier = Modifier
+                    .size(35.dp)
+                    .padding(end = 8.dp)
+            )
+            Text(text = stringResource(R.string.contacto11))
+        }
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 8.dp)
+        ) {
+            Icon(
+                imageVector = Icons.Default.AccountCircle,
+                contentDescription = "ContactoLogo",
+                modifier = Modifier
+                    .size(35.dp)
+                    .padding(end = 8.dp)
+            )
+            Text(text = stringResource(R.string.contacto12))
         }
     }
 }
