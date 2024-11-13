@@ -55,7 +55,6 @@ class MainActivity : ComponentActivity() {
 fun WhatsAppApi(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
-            .padding(5.dp)
             .fillMaxHeight()
 
     ) {
@@ -64,13 +63,14 @@ fun WhatsAppApi(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = 8.dp)
+                .background(color = colorResource(R.color.whatsapp_heading_color))
         ) {
             Image(
                 painter = painterResource(R.drawable.whatsapp),
                 contentDescription = "WasaLogo",
                 modifier = Modifier
                     .size(43.dp)
-                    .padding(end = 8.dp)
+                    .padding(horizontal = 8.dp)
             )
             Text(
                 text = "WhatsApp",
