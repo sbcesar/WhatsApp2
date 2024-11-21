@@ -51,7 +51,7 @@ fun SecondScreen(navController: NavController) {
 
 @Composable
 fun SecondBody(navController: NavController) {
-
+    val messages = remember { mutableStateListOf<Pair<Boolean, String>>(Pair(false, "Hola!!")) }
     val message = remember { mutableStateOf("") }
 
     Box(
@@ -73,7 +73,7 @@ fun SecondBody(navController: NavController) {
                 navController = navController
             )
 
-            MessageSection(message)
+            MessageSection(messages, message)
 
         }
     }
@@ -138,6 +138,7 @@ fun TopBarSection(
 
 @Composable
 fun MessageSection(
+    messages: MutableList<Pair<Boolean, String>>,
     message: MutableState<String>
 ) {
     Box(
@@ -155,29 +156,28 @@ fun MessageSection(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
+            // Mostrar mensajes dinámicamente
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp)
             ) {
-                Text(
-                    text = "Hola, ¿cómo estás?",
-                    modifier = Modifier
-                        .background(color = colorResource(R.color.whatsapp_background), shape = CircleShape)
-                        .padding(8.dp),
-                    color = Color.White,
-                    fontSize = 16.sp
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = "Todo bien, gracias. ¿Y tú?",
-                    modifier = Modifier
-                        .align(Alignment.End)
-                        .background(color = colorResource(R.color.user_color), shape = CircleShape)
-                        .padding(8.dp),
-                    color = Color.White,
-                    fontSize = 16.sp
-                )
+                messages.forEach { (isOwn, text) ->
+                    Text(
+                        text = text,
+                        modifier = Modifier
+                            .align(if (isOwn) Alignment.End else Alignment.Start)
+                            .background(
+                                color = if (isOwn) colorResource(R.color.user_color)
+                                else colorResource(R.color.whatsapp_background),
+                                shape = CircleShape
+                            )
+                            .padding(8.dp),
+                        color = Color.White,
+                        fontSize = 16.sp
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                }
             }
         }
 
@@ -207,7 +207,14 @@ fun MessageSection(
 
             Box(
                 modifier = Modifier
-                    .size(48.dp),
+                    .size(48.dp)
+                    .clickable {
+                        // Agregar el mensaje propio a la lista
+                        if (message.value.isNotBlank()) {
+                            messages.add(Pair(true, message.value))
+                            message.value = "" // Limpiar el campo de entrada
+                        }
+                    },
                 contentAlignment = Alignment.Center
             ) {
                 Image(
@@ -220,19 +227,87 @@ fun MessageSection(
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//@Composable
+//fun MessageSection(
+//    message: MutableState<String>
+//) {
+//    Box(
+//        modifier = Modifier
+//            .fillMaxSize()
+//    ) {
+//        Image(
+//            painter = painterResource(R.drawable.wallpaper_deku),
+//            contentDescription = "wallpaper_image",
+//            modifier = Modifier.fillMaxSize(),
+//            contentScale = ContentScale.Crop
+//        )
+//
+//        Column(
+//            modifier = Modifier.fillMaxSize(),
+//            verticalArrangement = Arrangement.SpaceBetween
+//        ) {
+//            Column(
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//                    .padding(16.dp)
+//            ) {
+//                Text(
+//                    text = "Hola, ¿cómo estás?",
+//                    modifier = Modifier
+//                        .background(color = colorResource(R.color.whatsapp_background), shape = CircleShape)
+//                        .padding(8.dp),
+//                    color = Color.White,
+//                    fontSize = 16.sp
+//                )
+//                Spacer(modifier = Modifier.height(8.dp))
+//                Text(
+//                    text = "Todo bien, gracias. ¿Y tú?",
+//                    modifier = Modifier
+//                        .align(Alignment.End)
+//                        .background(color = colorResource(R.color.user_color), shape = CircleShape)
+//                        .padding(8.dp),
+//                    color = Color.White,
+//                    fontSize = 16.sp
+//                )
+//            }
+//        }
+//
+//        Row(
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .padding(8.dp)
+//                .align(Alignment.BottomCenter),
+//            verticalAlignment = Alignment.CenterVertically
+//        ) {
+//            TextField(
+//                value = message.value,
+//                onValueChange = { message.value = it },
+//                placeholder = { Text(text = "Message...", color = Color.LightGray) },
+//                modifier = Modifier
+//                    .weight(1f)
+//                    .padding(horizontal = 8.dp)
+//                    .clip(RoundedCornerShape(16.dp)),
+//                colors = TextFieldDefaults.colors(
+//                    focusedIndicatorColor = Color.Transparent,
+//                    unfocusedIndicatorColor = Color.Transparent,
+//                    focusedContainerColor = colorResource(R.color.whatsapp_background),
+//                    unfocusedContainerColor = colorResource(R.color.whatsapp_background)
+//                ),
+//                maxLines = 1
+//            )
+//
+//            Box(
+//                modifier = Modifier
+//                    .size(48.dp),
+//                contentAlignment = Alignment.Center
+//            ) {
+//                Image(
+//                    painter = painterResource(R.drawable.enviar),
+//                    contentDescription = "send_icon",
+//                    modifier = Modifier.size(24.dp)
+//                )
+//            }
+//        }
+//    }
+//}
 
