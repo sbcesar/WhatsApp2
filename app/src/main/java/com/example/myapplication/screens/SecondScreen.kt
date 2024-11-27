@@ -51,7 +51,7 @@ fun SecondScreen(navController: NavController) {
 
 @Composable
 fun SecondBody(navController: NavController) {
-    val messages = remember { mutableStateListOf<Pair<Boolean, String>>(Pair(false, "Hola!!")) }
+    val messages = remember { mutableStateListOf(Pair(false, "Hola!!")) }
     val message = remember { mutableStateOf("") }
 
     Box(
